@@ -1,6 +1,6 @@
 
 import React from 'react';
-import NumericRange from './types';
+import { NumericRangeType } from './types';
 
 
 const XAxis = ({ valueRange }) => (
@@ -10,7 +10,7 @@ const XAxis = ({ valueRange }) => (
 );
 
 XAxis.propTypes = {
-  valueRange: NumericRange,
+  valueRange: NumericRangeType,
 };
 
 XAxis.defaultProps = {

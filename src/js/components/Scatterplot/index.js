@@ -9,6 +9,7 @@ import YAxis from './YAxis';
 import PlotBackground from './PlotBackground';
 import PlotPoint from './PlotPoint';
 
+import { PlotPointType } from './types';
 import { getDistinctValues, getValueRange } from './utils';
 
 
@@ -26,7 +27,7 @@ const Scatterplot = ({ data }) => (
 );
 
 Scatterplot.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.any),
+  data: PropTypes.arrayOf(PlotPointType),
 };
 
 Scatterplot.defaultProps = {

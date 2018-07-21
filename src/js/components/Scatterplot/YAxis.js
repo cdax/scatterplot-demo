@@ -1,6 +1,6 @@
 
 import React from 'react';
-import NumericRange from './types';
+import { NumericRangeType } from './types';
 
 
 const YAxis = ({ valueRange }) => (
@@ -10,7 +10,7 @@ const YAxis = ({ valueRange }) => (
 );
 
 YAxis.propTypes = {
-  valueRange: NumericRange,
+  valueRange: NumericRangeType,
 };
 
 YAxis.defaultProps = {
