@@ -9,11 +9,17 @@ import PlotBackground from './PlotBackground';
 import PlotPoint from './PlotPoint';
 
 
+const getValueRange = (objects, key) => {
+  const values = objects.map(object => object[key]);
+  return [Math.min(...values), Math.max(...values)];
+};
+
+
 const Scatterplot = ({ data }) => (
   <div>
     <Legend />
-    <XAxis />
-    <YAxis />
+    <XAxis valueRange={getValueRange(data, 'start_time')} />
+    <YAxis valueRange={getValueRange(data, 'duration')} />
     <PlotBackground>
       {data.map(plotPoint => <PlotPoint data={plotPoint} />)}
     </PlotBackground>
