@@ -2,12 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Alignments } from './constants';
+import Circle from './Circle';
+import { StatusColors, Alignments } from './constants';
 
 
 const Legend = ({ values, alignment }) => (
   <div style={{ textAlign: alignment === Alignments.RIGHT ? 'right' : 'left' }}>
-    TODO: Legend {values.join(', ')}
+    {
+      values.map((value, idx) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <span key={idx} style={{ padding: 5 }}>
+          <Circle radius={5} color={StatusColors[value]} /> {value}
+        </span>
+      ))
+    }
   </div>
 );
 
