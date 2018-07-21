@@ -24,7 +24,9 @@ const Scatterplot = ({ data }) => (
     <XAxis valueRange={getValueRange(data, 'start_time', moment)} />
     <YAxis valueRange={getValueRange(data, 'duration')} />
     <PlotBackground>
-      {data.map(plotPoint => <PlotPoint data={plotPoint} />)}
+      {data.map((plotPoint, idx) => (
+        <PlotPoint key={idx} data={plotPoint} /> // eslint-disable-line react/no-array-index-key
+      ))}
     </PlotBackground>
   </div>
 );
