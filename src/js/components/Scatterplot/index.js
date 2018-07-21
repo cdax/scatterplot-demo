@@ -13,7 +13,6 @@ import { identity } from './utils';
 
 
 const getValueRange = (objects, key, transform = identity) => {
-  console.log(moment.format);
   const values = objects.map(object => transform(object[key]));
   return [Math.min(...values), Math.max(...values)];
 };
