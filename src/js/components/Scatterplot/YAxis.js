@@ -10,7 +10,11 @@ const YAxis = ({ valueRange }) => (
 );
 
 YAxis.propTypes = {
-  valueRange: NumericRange.isRequired,
+  valueRange: NumericRange,
+};
+
+YAxis.defaultProps = {
+  valueRange: [0, 0],
 };
 
 export default YAxis;

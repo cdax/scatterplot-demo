@@ -10,7 +10,11 @@ const XAxis = ({ valueRange }) => (
 );
 
 XAxis.propTypes = {
-  valueRange: NumericRange.isRequired,
+  valueRange: NumericRange,
+};
+
+XAxis.defaultProps = {
+  valueRange: [0, 0],
 };
 
 export default XAxis;
