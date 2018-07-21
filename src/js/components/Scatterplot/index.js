@@ -13,8 +13,8 @@ import { PlotPointType } from './types';
 import { getDistinctValues, getValueRange } from './utils';
 
 
-const Scatterplot = ({ data }) => (
-  <div>
+const Scatterplot = ({ data, width, height }) => (
+  <div width={width} height={height} style={{ border: '1px solid black' }}>
     <Legend values={getDistinctValues(data, 'status')} />
     <XAxis valueRange={getValueRange(data, 'start_time', moment)} />
     <YAxis valueRange={getValueRange(data, 'duration')} />
@@ -28,10 +28,14 @@ const Scatterplot = ({ data }) => (
 
 Scatterplot.propTypes = {
   data: PropTypes.arrayOf(PlotPointType),
+  width: PropTypes.number,
+  height: PropTypes.number,
 };
 
 Scatterplot.defaultProps = {
   data: [],
+  width: 800,
+  height: 300,
 };
 
 export default Scatterplot;
