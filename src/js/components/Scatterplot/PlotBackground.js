@@ -11,11 +11,11 @@ const PlotBackground = ({ children }) => (
 );
 
 PlotBackground.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 PlotBackground.defaultProps = {
-  children: <span />,
+  children: [<span />],
 };
 
 export default PlotBackground;
