@@ -9,18 +9,12 @@ import YAxis from './YAxis';
 import PlotBackground from './PlotBackground';
 import PlotPoint from './PlotPoint';
 
-import { identity } from './utils';
-
-
-const getValueRange = (objects, key, transform = identity) => {
-  const values = objects.map(object => transform(object[key]));
-  return [Math.min(...values), Math.max(...values)];
-};
+import { getDistinctValues, getValueRange } from './utils';
 
 
 const Scatterplot = ({ data }) => (
   <div>
-    <Legend />
+    <Legend values={getDistinctValues(data, 'status')} />
     <XAxis valueRange={getValueRange(data, 'start_time', moment)} />
     <YAxis valueRange={getValueRange(data, 'duration')} />
     <PlotBackground>
