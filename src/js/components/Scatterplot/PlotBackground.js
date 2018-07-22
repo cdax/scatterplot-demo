@@ -15,7 +15,7 @@ PlotBackground.propTypes = {
 };
 
 PlotBackground.defaultProps = {
-  children: [<span />],
+  children: [],
 };
 
 export default PlotBackground;
