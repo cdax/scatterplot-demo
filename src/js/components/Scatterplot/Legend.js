@@ -2,21 +2,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Circle from './Circle';
-import { StatusColors } from './constants';
+import { StatusColors, DefaultPointSize } from './constants';
 
 
-const Legend = ({ values }) => (
-  <div style={{ textAlign: 'right' }}>
+const Legend = ({ values, ...rest }) => (
+  <g {...rest}>
     {
       values.map((value, idx) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <span key={idx} style={{ padding: 5 }}>
-          <Circle radius={5} color={StatusColors[value]} /> {value}
-        </span>
+        <g transform={`translate(${idx * 60})`} key={value}>
+          <circle
+            cx={DefaultPointSize / 2.0}
+            cy={-DefaultPointSize / 2.0}
+            r={DefaultPointSize}
+            style={{ fill: StatusColors[value] }}
+          />
+          <text x={DefaultPointSize * 2.0}>{value}</text>
+        </g>
       ))
     }
-  </div>
+  </g>
 );
 
 Legend.propTypes = {

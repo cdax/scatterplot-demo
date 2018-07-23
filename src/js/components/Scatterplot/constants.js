@@ -7,6 +7,4 @@ export const StatusColors = {
 
 export const StatusValues = Object.keys(StatusColors);
 
-export const Orientation = { HORIZONTAL: 0, VERTICAL: 1 };
-
-export const MillisecondsInOneDay = 24 * 60 * 60 * 1000; // number of milliseconds in one day
+export const DefaultPointSize = 7;
