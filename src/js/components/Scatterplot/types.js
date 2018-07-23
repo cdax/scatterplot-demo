@@ -7,6 +7,7 @@ import { StatusValues } from './constants';
 
 export const NumericRangeType = (props, propName) => { // eslint-disable-line consistent-return
   const propValue = props[propName];
+  debugger;
   if (
     !Array.isArray(propValue) ||
     propValue.length !== 2 ||

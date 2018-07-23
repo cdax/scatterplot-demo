@@ -11,7 +11,7 @@ const PlotBackground = ({ children }) => (
 );
 
 PlotBackground.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.any, // TODO: should we have stronger validation here?
 };
 
 PlotBackground.defaultProps = {

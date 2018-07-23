@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Circle from './Circle';
-import { StatusColors, Alignments } from './constants';
+import { StatusColors } from './constants';
 
 
-const Legend = ({ values, alignment }) => (
-  <div style={{ textAlign: alignment === Alignments.RIGHT ? 'right' : 'left' }}>
+const Legend = ({ values }) => (
+  <div style={{ textAlign: 'right' }}>
     {
       values.map((value, idx) => (
         // eslint-disable-next-line react/no-array-index-key
@@ -21,11 +21,6 @@ const Legend = ({ values, alignment }) => (
 
 Legend.propTypes = {
   values: PropTypes.arrayOf(PropTypes.string).isRequired,
-  alignment: PropTypes.oneOf(Alignments),
-};
-
-Legend.defaultProps = {
-  alignment: Alignments.RIGHT,
 };
 
 export default Legend;

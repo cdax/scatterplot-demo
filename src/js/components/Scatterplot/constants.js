@@ -7,14 +7,6 @@ export const StatusColors = {
 
 export const StatusValues = Object.keys(StatusColors);
 
-export const Alignments = {
-  LEFT: 0,
-  RIGHT: 1,
-};
+export const Orientation = { HORIZONTAL: 0, VERTICAL: 1 };
 
-export const Placements = {
-  TOP: 0,
-  LEFT: 1,
-  BOTTOM: 2,
-  RIGHT: 3,
-};
+export const MillisecondsInOneDay = 24 * 60 * 60 * 1000; // number of milliseconds in one day

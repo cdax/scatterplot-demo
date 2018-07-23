@@ -4,20 +4,30 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import Legend from './Legend';
-import XAxis from './XAxis';
-import YAxis from './YAxis';
+import Axis from './Axis';
 import PlotBackground from './PlotBackground';
 import PlotPoint from './PlotPoint';
 
+import { Orientation, MillisecondsInOneDay } from './constants';
 import { PlotPointType } from './types';
-import { getDistinctValues, getValueRange } from './utils';
+import { getDistinctValues, getValueRange, padDates, padNumbers } from './utils';
 
+
+const DurationInterval = 30; // in seconds
 
 const Scatterplot = ({ data, width, height }) => (
   <PlotBackground width={width} height={height} style={{ border: '1px solid black' }}>
     <Legend values={getDistinctValues(data, 'status')} />
-    <XAxis valueRange={getValueRange(data, 'start_time', moment)} />
-    <YAxis valueRange={getValueRange(data, 'duration')} />
+    <Axis
+      valueRange={padDates(getValueRange(data, 'start_time', moment))}
+      interval={MillisecondsInOneDay}
+      orientation={Orientation.HORIZONTAL}
+    />
+    <Axis
+      valueRange={padNumbers(getValueRange(data, 'duration'), DurationInterval)}
+      interval={DurationInterval}
+      orientation={Orientation.VERTICAL}
+    />
     {data.map((plotPoint, idx) => (
       <PlotPoint key={idx} data={plotPoint} /> // eslint-disable-line react/no-array-index-key
     ))}
